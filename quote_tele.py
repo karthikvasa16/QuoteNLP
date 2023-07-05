@@ -68,8 +68,8 @@ def ask_question(quote, model, tokenizer, max_length=128, num_return_sequences=1
 
 if __name__ == "__main__":
     # Load and preprocess the dataset
-    quotesto = pd.read_csv("/content/quote.csv", encoding="latin-1")
-    valid = pd.read_csv("/content/valid.csv", encoding="latin-1")
+    quotesto = pd.read_csv("quote.csv", encoding="latin-1")
+    valid = pd.read_csv("valid.csv", encoding="latin-1")
     train_dataset = load_dataset(quotesto, tokenizer)
     valid_dataset = load_dataset(valid, tokenizer)
 
