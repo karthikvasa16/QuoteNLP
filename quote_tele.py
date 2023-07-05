@@ -68,9 +68,12 @@ def ask_question(quote, model, tokenizer, max_length=128, num_return_sequences=1
 
 if __name__ == "__main__":
     # Load and preprocess the dataset
+    model_name = "fine_tuned_QuotesandAuthors_gpt2"
+    tokenizer = GPT2TokenizerFast.from_pretrained(model_name)
+    model = GPT2LMHeadModel.from_pretrained(model_name)
     quotesto = pd.read_csv("quote.csv", encoding="latin-1")
     valid = pd.read_csv("valid.csv", encoding="latin-1")
-    tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
+    
     train_dataset = load_dataset(quotesto, tokenizer)
     valid_dataset = load_dataset(valid, tokenizer)
 
