@@ -35,8 +35,11 @@ def guess_author(message):
 
     # Load the fine-tuned model and tokenizer
     model_name = "fine_tuned_QuotesandAuthors_gpt2"
-    tokenizer = GPT2TokenizerFast.from_pretrained(model_name)
-    model = GPT2LMHeadModel.from_pretrained(model_name)
+    model_identifier = "fine_tuned_QuotesandAuthors_gpt2"
+
+    model_ = AutoModel.from_pretrained(model_identifier, use_auth_token=True)
+    tokenizer = GPT2TokenizerFast.from_pretrained(model_)
+    model = GPT2LMHeadModel.from_pretrained(model_)
 
     answer = ask_question(quote, model, tokenizer)
 
