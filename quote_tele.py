@@ -105,7 +105,4 @@ if __name__ == "__main__":
     )
 
     trainer.train()
-    # Save the fine-tuned model
-    model.save_pretrained("fine_tuned_QuotesandAuthors_gpt2")
-
     bot.polling()
